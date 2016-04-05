@@ -8,7 +8,7 @@ if __name__ == "__main__":
     path2keys = os.environ.setdefault("PATHTOKEYS", os.path.expanduser("~")+"/keys.json")
     if not os.path.exists(path2keys):
         newFile = open(path2keys, 'w+')
-        newFile.write("{}")
+        newFile.write("{\"debug\" : {}, \"release\" : {}}")
         newFile.flush()
         newFile.close()
     with open(path2keys) as json_file:    
