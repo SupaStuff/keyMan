@@ -28,11 +28,13 @@ if __name__ == "__main__":
         if argv[1] == "set" :
             keys[key[0]][key[1]] = {}
             entry = ""
+            print("(Type q to quit)")
             while entry != "q" :
-                entry = raw_input("(Type q to quit)\nEnter key: ")
+                entry = raw_input("Enter key: ")
                 if entry != "q" :
                     value = raw_input("Enter value: ")
-                    keys[key[0]][key[1]][entry] = value
+                    if value != "q" :
+                        keys[key[0]][key[1]][entry] = value
             with open(path2keys, 'w') as json_file:
                 json_file.write(json.dumps(keys, sort_keys=True, indent=4, separators=(',', ': ')))
         elif argv[1] == "remove" :
